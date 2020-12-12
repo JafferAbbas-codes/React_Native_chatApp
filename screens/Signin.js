@@ -27,9 +27,9 @@ const Signin = (props) => {
     try {
       await props.setLoading(true);
       const result = await props.Login(body);
-      console.log("props.user is " , props.user)
+      // console.log("props.user is " , props.user)
       await props.setLoading(false);
-      console.log('result', result);
+      // console.log('result', result);
       if (result.error) {
         console.log('result.error', result.error);
         //do something here

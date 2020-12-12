@@ -7,7 +7,7 @@ import {globalStyles} from '../styles/global';
 
 const Home = (props) => {
   // const {user, logout} = useContext(AuthContext);
-console.log("props.user home",props.user)
+// console.log("props.user home",props.user)
   const pressHandler = () => {
     props.navigation.navigate('About');
   };

@@ -10,8 +10,9 @@ import About from '../screens/About';
 import Notifications from '../screens/Notifications';
 import Profile from '../screens/Profile';
 import Explorer from '../screens/Explorer';
+import Users from '../screens/Users';
 import DrawerContent from '../screens/DrawerContent';
-import io from 'socket.io-client';
+// import io from 'socket.io-client';
 import Icon from 'react-native-vector-icons';
 
 const Stack = createStackNavigator();
@@ -30,6 +31,18 @@ const HomeStackScreen = () => {
       }}>
       <Stack.Screen name="Home" component={Home} />
       <Stack.Screen name="About" component={About} />
+    </Stack.Navigator>
+  );
+};
+
+const ChatStackScreen = () => {
+  return (
+    <Stack.Navigator
+      screenOptions={{
+        headerShown: false,
+      }}>
+      <Stack.Screen name="Users" component={Users} />
+      <Stack.Screen name="Explorer" component={Explorer} />
     </Stack.Navigator>
   );
 };
@@ -94,10 +107,10 @@ const MainBottomTabStack = () => {
         }}
       />
       <Tab.Screen
-        name="Explore"
-        component={Explorer}
+        name="ChatStackScreen"
+        component={ChatStackScreen}
         options={{
-          tabBarLabel: 'Explore',
+          tabBarLabel: 'Users',
           tabBarColor: '#CC0000',
           tabBarIcon: ({color}) => (
             <MaterialIcons name="explore" color={color} size={26} />

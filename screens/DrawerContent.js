@@ -22,12 +22,12 @@ import { connect } from "react-redux";
 const DrawerContent = (props) => {
 
   useEffect(()=>{
-    console.log("props.state---->",props)
+    // console.log("props.state---->",props)
 
   })
-  console.log("props",props)
-  console.log("props.state---->",props.reduxstate)
-  console.log("props.user DrawerContent",props.user)
+  // console.log("props",props)
+  // console.log("props.state---->",props.reduxstate)
+  // console.log("props.user DrawerContent",props.user)
   // const {user, logout} = useContext(AuthContext);
   const [isDarkTheme, setIsDarkTheme] = useState(true);
 
