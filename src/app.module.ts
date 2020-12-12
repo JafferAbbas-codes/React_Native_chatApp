@@ -6,6 +6,8 @@ import { AuthModule } from './auth/auth.module';
 
 import { MongooseModule } from '@nestjs/mongoose';
 import { ConfigModule } from '@nestjs/config';
+import { ChatModule } from './chat/chat.module';
+import { UserModule } from './user/user.module';
 
 @Module({
   imports: [
@@ -15,6 +17,8 @@ import { ConfigModule } from '@nestjs/config';
       useUnifiedTopology: true,
     }),
     AuthModule,
+    ChatModule,
+    UserModule,
   ],
   controllers: [AppController],
   providers: [AppService, AppGateway],

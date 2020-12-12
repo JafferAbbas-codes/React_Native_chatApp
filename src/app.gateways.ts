@@ -33,13 +33,17 @@ export class AppGateway
   handleConnection(client: Socket) {
     console.log("view client id", client.id);
     console.log("view client id------yahoo", client.id);
-    this.server.emit("fetchClients", client.id);
+    // this.server.emit("fetchClients", client.id);
   }
 
   @SubscribeMessage("JoinRoom")
-  handleRoomJoin(client: Socket, data: any[]): void {
-    console.log("set Chat now ==-->", data, client.id);
-    client.join(data);
+  handleRoomJoin(client: Socket, data: any): void {
+    // console.log("data.sender", data.sender._id);
+    // console.log("data.receiver", data.receiver._id);
+    // let str= data.sender._id+data.receiver._id;
+    // console.log("creating room id",str)
+    console.log("data.roomId",data)
+    client.join(data.roomId);
     let temp = this.chatArray.filter((value) => value.clientId !== client.id);
     let chat = {
       id: data,
@@ -51,15 +55,17 @@ export class AppGateway
   }
 
   @SubscribeMessage("msgToServer")
-  handleMessage(client: Socket, data: any[]): void {
+  handleMessage(client: Socket, data: any): void {
     console.log("check this now brother", data);
     let temp = this.chatArray.filter((value) => value.id == data[1]);
     // this.server.to(client.id).emit("msgToClient", data[0]);
-    console.log("check temp now", temp);
-    for (var key in temp) {
-      console.log("chec=====>", temp[key], temp[key].clientId, client.id);
-      this.server.to(temp[key].clientId).emit("msgToClient", data[0]);
-    }
+    // console.log("check temp now", temp);
+    console.log("client",client.id)
+    this.server.to(data.roomId).emit("msgToClient", data);
+    // for (var key in temp) {
+    //   console.log("chec=====>", temp[key], temp[key].clientId, client.id);
+    //   this.server.to(temp[key].clientId).emit("msgToClient", data[0]);
+    // }
   }
 
   @SubscribeMessage("SendMsgToRoom")

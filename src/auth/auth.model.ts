@@ -8,9 +8,8 @@ export const AuthSchema = new mongoose.Schema(
       type: String,
       required:true
     },
-    // lastName: {
-    //   type: String,
-    // },
+    avatar: {type:String,default:'https://placeimg.com/140/140/any'},
+
     isAdmin: {
       type: Boolean,
       default: 'false',
