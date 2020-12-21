@@ -32,6 +32,8 @@ const Explorer = (props) => {
         sender: props.user,
         receiver: props.route.params.receiver,
       });
+      console.log('sender is ======>  ', props.user)
+      console.log('receiver is ======>   ',props.route.params.receiver)
     } catch (error) {
       console.log('error in joinRoom', error);
     }
@@ -39,7 +41,8 @@ const Explorer = (props) => {
   const sendMessage = async (messages) => {
     try {
       // console.log("roomId ---->   ",roomId)
-      // console.log(`${URL}${sendMessageToServer}`)
+      // console.log('sender is ======>  ', props.user)
+      // console.log('receiver is ======>   ',props.route.params.receiver)
       let response = await axios.post(`${URL}${sendMessageToServer}`, {
         messages,
         roomId,

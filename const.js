@@ -1,4 +1,4 @@
-export const URL ='http://192.168.18.155:4000/'
+export const URL ='https://react-native-chat-app-server.herokuapp.com/'
 export const loginRoute = "auth/login/";
 export const signupRoute = "auth/signup/";
 export const getAllUser= "user/";
