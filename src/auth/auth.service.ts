@@ -12,7 +12,7 @@ export class AuthService {
     try {
         console.log("hello")
       const { email, password } = req;
-      const userExist = await this.authModel.findOne({ email: 'jaffer@gmail.com' });
+      const userExist = await this.authModel.findOne({ email });
       if (!userExist) {
         throw {
           responseCode: 404,
